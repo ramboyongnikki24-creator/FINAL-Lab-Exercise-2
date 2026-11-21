@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+.container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1a1a2e;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 24px;
+}
+
+button {
+    background-color: #1a1a2e;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #16213e;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#output {
+    margin-top: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 60px;
+    line-height: 1.7;
+    font-size: 15px;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+}
+
+#output.has-data {
+    border-color: #c8d6e5;
+    background-color: #f8f9fa;
+}
+
+#output.has-error {
+    border-color: #e74c3c;
+    background-color: #fdf0ef;
+}
+
+#output .label {
+    font-weight: 700;
+    color: #1a1a2e;
+    display: block;
+    margin-bottom: 2px;
+}
+
+#output .title-text {
+    font-size: 17px;
+    color: #222;
+    margin-bottom: 14px;
+    text-transform: capitalize;
+}
+
+#output .body-text {
+    color: #555;
+}
+
+#output .error-msg {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+#output .loading-msg {
+    color: #888;
+    font-style: italic;
+}
+
+.footer-note {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+}

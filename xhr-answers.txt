@@ -1,0 +1,42 @@
+Lab Exercise 2 – Guide Questions
+
+1. What is the difference between readyState and status in XMLHttpRequest?
+
+Think of these two as two different checkpoints for your request.
+
+readyState is all about the journey. It tells you what the browser is doing right now with the request. Is it just getting started? Is it waiting for a response? Is it finally finished?
+0 (UNSENT): You created the object, but haven't told it where to go yet.
+1 (OPENED): You've called open() and prepped the request.
+2 (HEADERS_RECEIVED): The request has been sent, and the server has sent back the headers.
+3 (LOADING): The data is currently downloading.
+4 (DONE): The process is complete.
+
+status is the report card from the server. Once the request is done (readyState 4), this tells you if the server actually succeeded or failed.
+200: All good (OK).
+404: The server couldn't find what you asked for (Not Found).
+500: The server crashed or had an error (Internal Server Error).
+403: You aren't allowed to see this (Forbidden).
+In short: readyState tracks the progress on your end, while status tells you the result from the server's end.
+
+2. How can you make the request asynchronous?
+
+It’s actually very simple. You just pass true as the third argument when you open the connection:
+
+javascript
+
+xhr.open("GET", "https://example.com/data", true);
+That third parameter is the "async" flag. By setting it to true (which is actually the default), you are telling the browser: "Fire this request and don't wait around. Keep running the rest of the code while this happens in the background."
+
+If you were to set it to false, the browser would freeze up and wait for the server to reply before doing anything else—which is usually a bad idea.
+
+3. Why is asynchronous communication recommended for web applications?
+
+The main reason is that nobody likes a frozen screen.
+
+It keeps the UI responsive: If you use a synchronous request, the browser locks up completely until the server answers. The user can't click, scroll, or type anything. Asynchronous requests let the page stay "alive" while the data loads in the background.
+Better User Experience: Users can keep doing what they're doing—like filling out a form or reading—while the app fetches information silently in the background.
+It handles the real world: Network connections aren't always perfect. Sometimes servers are slow. If you used a synchronous request on a slow connection, your user would think the browser crashed. Async allows your app to handle those delays gracefully.
+Multitasking: Async allows you to fire off multiple requests at once. This is essential for modern features like live search, auto-saving drafts, or real-time notifications.
+Modern Standards: Using synchronous requests on the main thread is officially considered "deprecated" (or frowned upon) in modern web development because it ruins the user experience. Async is the standard way to do things now.
+
+
